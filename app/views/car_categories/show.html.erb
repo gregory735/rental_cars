@@ -1,0 +1,48 @@
+<h1><%= @car_category.name %></h1>
+
+<dl>
+    <dt>daily_rate</dt>
+    <dd><%= number_to_currency @car_category.daily_rate %></dd>
+    <dt>car_insurance</dt>
+    <dd><%= number_to_currency @car_category.car_insurance %></dd>
+    <dt>third_party_insurance</dt>
+    <dd><%= number_to_currency @car_category.third_party_insurance %></dd>
+</dl>
+
+<%= link_to 'Voltar', car_categories_path %>
+
+
+
+
+<!-- 
+number_to_currency é um método que converte um valor para umna moeda e converte valor, deixa no formato certo.
+
+I18N -> internacionalization = é como você diz como uma aplicação está rodando em espanhol ou italiano ou ingles, etc
+permite fazer as traduções
+
+ruby já tem um I18N Embutido em config/locales/.. geralmente com ingles já definido.
+para mudar para portugues, criar um arquivo em config/initializers chamado locales.rb
+
+nesse arquivo pegar o exemplo do  https://www.guiarails.com.br/i18n.html e colar nele. segue abaixo o modelo.
+
+depois acessar o https://github.com/svenfuchs/rails-i18n e pegar a linguagem que deseja. Não é uma boa pratica usar a gem e baixar todas as linguagens de uma vez
+
+nesse link da para pegar a linguagem individual. https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale/ copiar o conteudo criar um arquivo em config/locales/.. com o da linguagem e colar o código do github 
+
+
+
+# config/initializers/locale.rb
+ 
+# Where the I18n library should search for translation files
+I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+ 
+# Permitted locales available for the application
+I18n.available_locales = [:en, :pt]
+ 
+# Set default locale to something other than :en
+I18n.default_locale = :pt
+
+
+
+
+-->
