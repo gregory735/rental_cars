@@ -1,5 +1,7 @@
 require 'rails_helper'
-
+# cada teste é dividido em 3 partes
+# os 3 A's, arrange, act e assert
+# 3 A's, prepara, executa e valida (prepara os dados, executa com eles e valida eles)
 
 feature 'admin view all subsidiaries' do
     scenario 'successfully' do

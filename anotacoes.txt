@@ -1,0 +1,41 @@
+antes de usar o comando bin/setup para baixar os scripts do projeto
+
+ir na pasta bin abrir o arquivo setup e descomentar o código system('bin/yarn') para ele baixar automaticamente os pacotes do yarn. (neste projeto já fiz isso)
+
+
+
+
+Dicas de Teste no spec
+
+#criar pasta chamada features e colocar os testes lá, não esquecer de colocar o _spec no final do nome do arquivo
+# cada teste é dividido em 3 partes
+# os 3 A's, arrange, act e assert
+# 3 A's, prepara, executa e valida (prepara os dados, executa com eles e valida eles)
+
+
+
+Dicas de Código
+
+#método .all -> retorna um array vazio então da para usar metodos na resposta dele ex CarCategory.all. CarCategory.empty?
+
+#o método .find -> retorna nil. então não da para usar metodos na resposta dele. teria que fazer de um jeito diferente ex: CarCategory == 'nil'
+
+#método redirect_back(fallback_location: root_path) usado no link_to ex <%= link_to 'voltar', redirect_back(fallback_location: root_path) %> volta para o 
+#ultimo site que visitou, mas pode voltar também para um site de fora do seu site, usar o allow_other_host: false -> faz ele não voltar para sites de fora.
+
+#number_to_currency é um método que converte um valor para umna moeda e converte valor, deixa no formato certo.
+#I18N -> internacionalization = é como você diz como uma aplicação está rodando em espanhol ou italiano ou ingles, etc
+#permite fazer as traduções
+
+
+
+Dicas de BD
+
+#banco_de_dados.first -> retorna primeira linha do bd
+
+#rake db:reset -> reseta todos os bds
+
+#Dicas de verbos get/post...
+#Links por padrão disparam requisições do tipo GET 
+#Essas requisições NÃO devem alterar nada no banco de dados 
+#Pra isso temos os métodos/verbos POST, DELETE...
