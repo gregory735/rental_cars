@@ -1,0 +1,11 @@
+<h1><%= @Subsidiary.name %></h1>
+
+<dl>
+    <dt>cnpj</dt>
+    <dd><%= @Subsidiary.cnpj %></dd>
+    <dt>endereço</dt>
+    <dd><%= @Subsidiary.address %></dd>
+</dl>
+
+
+<%= link_to 'Voltar', subsidiaries_path %>
