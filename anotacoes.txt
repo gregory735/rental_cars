@@ -12,6 +12,8 @@ Dicas de Teste no spec
 # os 3 A's, arrange, act e assert
 # 3 A's, prepara, executa e valida (prepara os dados, executa com eles e valida eles)
 
+#teste de feature testa o conjunto funcionando
+#testes unitarios -> testes para todos os casos ex. se numero negativo da certo, se zero da certo...
 
 
 Dicas de Código
@@ -27,8 +29,16 @@ Dicas de Código
 #I18N -> internacionalization = é como você diz como uma aplicação está rodando em espanhol ou italiano ou ingles, etc
 #permite fazer as traduções
 
+# tanto :var quanto var: são symbols
 
+#métodos com bang "!" deixa as funções mais explicita. 
+#ex. upcase! troca string que você usou o upcase
+#create! só cria se ele conseguir, se as validações passarem, se não ele quebra e manda erro.
+#no controler não costumamos usar metodos com bang.
 
+#para mostrar coisas no rails podemos usar o flash
+
+# todas as classes, new, create, show tem uma função render :new, render :create, mas tudo oculto, você pode explicitar para ele exibir
 Dicas de BD
 
 #banco_de_dados.first -> retorna primeira linha do bd
@@ -39,3 +49,5 @@ Dicas de BD
 #Links por padrão disparam requisições do tipo GET 
 #Essas requisições NÃO devem alterar nada no banco de dados 
 #Pra isso temos os métodos/verbos POST, DELETE...
+
+
