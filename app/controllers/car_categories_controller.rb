@@ -1,10 +1,12 @@
 class CarCategoriesController < ApplicationController
+  before_action :set_car_category, only: [:show, :edit, :update, :destroy]
+
   def index
     @car_categories = CarCategory.all
   end
 
   def show
-    @car_category = CarCategory.find(params[:id]) # params é um hash
+    #@car_category = CarCategory.find(params[:id]) # params é um hash, linha não necessaria pois esse mesmo código está sendo chamado no before action
   end
 
   def new
@@ -29,16 +31,25 @@ class CarCategoriesController < ApplicationController
   end
 
   def edit
-    @car_category = CarCategory.find(params[:id])
+    #@car_category = CarCategory.find(params[:id]) #linha não necessaria pois esse mesmo código está sendo chamado no before action
   end
 
   def update
-    @car_category = CarCategory.find(params[:id])
+    #@car_category = CarCategory.find(params[:id])
     if @car_category.update(car_category_params)
       redirect_to @car_category
     else
       render :edit
     end
+  end
+
+  def destroy
+    @car_category.destroy
+    redirect_to car_categories_path
+  end
+
+  def set_car_category
+    @car_category = CarCategory.find(params[:id])
   end
 
   private
