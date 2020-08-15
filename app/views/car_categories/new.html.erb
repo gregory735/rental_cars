@@ -1,32 +1,31 @@
 <% if @car_category.errors.any? %>
-    <ul>
-        <% @car_category.errors.full_messages.each do |message| %>
-            <li>
-                <%= message %>
-            </li>
-        <% end %>
-    </ul>
+  <ul>
+    <% @car_category.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
 
 <!--- form_wth é um dos poucos casos que se usa o "=" par exibir --->
 <%= form_with model: @car_category, local:true do |f| %>
-    <div>
-        <!--- podemos apagar a string 'Nome' porque ja colocamos na tradução ele entçao rails reconhece--->
-        <%= f.label :name, 'Nome' %>
-        <%= f.text_field :name %>
-    </div>
-    <div>
-        <%= f.label :daily_rate, 'Diária' %>
-        <%= f.number_field :daily_rate, min: 0 %>
-    </div>
-    <div>
-        <%= f.label :car_insurance, 'Seguro do carro' %>
-        <%= f.number_field :car_insurance, min: 0 %>
-    </div>
-    <div>
-        <%= f.label :third_party_insurance, 'Seguro para terceiros' %>
-        <%= f.number_field :third_party_insurance, min: 0 %>
-    </div>
-    <%= f.submit 'Enviar' %>
+  <div>
+    <!--- podemos apagar a string 'Nome' porque ja colocamos na tradução ele entçao rails reconhece--->
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :daily_rate, 'Diária' %>
+    <%= f.number_field :daily_rate, min: 0 %>
+  </div>
+  <div>
+    <%= f.label :car_insurance, 'Seguro do carro' %>
+    <%= f.number_field :car_insurance, min: 0 %>
+  </div>
+  <div>
+    <%= f.label :third_party_insurance, 'Seguro para terceiros' %>
+    <%= f.number_field :third_party_insurance, min: 0 %>
+  </div>
+  <%= f.submit 'Enviar' %>
 <% end %>
-
