@@ -13,7 +13,7 @@
 <%= link_to 'Editar', edit_car_category_path(@car_category) %>
 <!-- por padrao o car_category_path é um GET, para fazer delete temos que transformar o verbo, no caso passamos o method e a action delete --->
 <%= link_to 'Apagar', car_category_path(@car_category), method: :delete,
-                                        data: { confirm: 'Tem certeza que deseja apagar?'} %>
+                                          data: { confirm: 'Tem certeza que deseja apagar?'} %>
 
 
 

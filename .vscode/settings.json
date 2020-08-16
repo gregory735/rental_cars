@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 2,
+  "typescript.preferences.quoteStyle": "single",
+  "emmet.preferences": {
+  
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true
+}
