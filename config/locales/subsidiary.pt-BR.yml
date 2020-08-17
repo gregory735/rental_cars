@@ -1,0 +1,9 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      subsidiary: 'Filial'
+    attributes:
+      subsidiary:
+        name: 'Nome'
+        address: 'Endereço'
