@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   # fechar as rotas para não usar todas
   resources :car_categories
-  resources :subsidiaries, only: [:index, :show, :new, :create]
+  resources :subsidiaries, only: [:index, :show, :new, :create, :edit, :update ]
   resources :car_models, only: [:index, :show]
 end
