@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin view car model' do
   scenario 'and view list' do
-    car_category = CarCategory.create!(name: 'TOP', daily_rate: 200, car_insurance: 200,
+    car_category = CarCategory.create!(name: 'Top', daily_rate: 200, car_insurance: 200,
                                        third_party_insurance: 280.55)
     CarModel.create!(name: 'Civic', year: 2009, manufacturer: 'Honda',
                      motorization: '2.0', car_category: car_category, fuel_type: 'Gasolina')
@@ -18,12 +18,12 @@ feature 'Admin view car model' do
     expect(page).to have_content('Jeep')
     expect(page).to have_content('Renegade')
     expect(page).to have_content('2018')
-    expect(page).to have_content('TOP', count: 2) #expressão regular,ex. /A/ faz que ache um A sozinho, entraria no lugar de 'TOP'
+    expect(page).to have_content('Top', count: 2) #expressão regular,ex. /A/ faz que ache um A sozinho, entraria no lugar de 'TOP'
     expect(page).to have_link('Voltar', href: root_path)
   end
 
   scenario 'and view details' do
-    car_category = CarCategory.create!(name: 'TOP', daily_rate: 200, car_insurance: 200,
+    car_category = CarCategory.create!(name: 'Top', daily_rate: 200, car_insurance: 200,
                                        third_party_insurance: 280.55)
     CarModel.create!(name: 'Civic', year: 2009, manufacturer: 'Honda',
                      motorization: '2.0', car_category: car_category, fuel_type: 'Gasolina')
