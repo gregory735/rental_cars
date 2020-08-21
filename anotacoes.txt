@@ -82,3 +82,4 @@ Dicas do devise
 # devise tem um before_action :authenticate_user! para verificar se o usuario está logado
 # outro jeito para testar autenticação é criando uma pasta no support e jogando essa linha -> include Warden::Test::Helpers
 # esse comando permite usar o seguinte código -> login_as(user, :scope => :user) que já cria um usuario (aainda é necessario criar no bd o user)
+
