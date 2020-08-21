@@ -4,6 +4,8 @@ feature 'Admin deletes manufacturer' do
   scenario 'successfully' do
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
+    user = User.create!(name: 'Grégory', email: 'gregory@email.com', password: '123456')
+    login_as(user, scope: :user)
 
     visit root_path
     click_on 'Categorias'
@@ -19,6 +21,8 @@ feature 'Admin deletes manufacturer' do
                         third_party_insurance: 10.5)
     CarCategory.create!(name: 'Flex', daily_rate: 80, car_insurance: 8.5,
                         third_party_insurance: 8.5)
+    user = User.create!(name: 'Grégory', email: 'gregory@email.com', password: '123456')
+    login_as(user, scope: :user)
 
     visit root_path
     click_on 'Categorias'

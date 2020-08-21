@@ -12,9 +12,13 @@ Dicas de Teste no spec
 # os 3 A's, arrange, act e assert
 # 3 A's, prepara, executa e valida (prepara os dados, executa com eles e valida eles)
 
+#colocar nos testes coisas que não era para aparecer para ver se realmente não aparece
+
 #teste de feature testa o conjunto funcionando
 #testes unitarios -> testes para todos os casos ex. se numero negativo da certo, se zero da certo...
 
+# para não ficar repetindo código ir a pasta rails_helper, decomentar a linha 23 e criar uma pasta support no rspec.
+#dentro dessa pasta criar um arquivo rb e colcoar a função que faça o código que repita muito
 
 Dicas de Código
 
@@ -39,6 +43,10 @@ Dicas de Código
 #para mostrar coisas no rails podemos usar o flash
 
 # todas as classes, new, create, show tem uma função render :new, render :create, mas tudo oculto, você pode explicitar para ele exibir
+
+# problemas de autenticação é resolvido nos controllers
+
+
 Dicas de BD
 
 #banco_de_dados.first -> retorna primeira linha do bd
@@ -51,3 +59,26 @@ Dicas de BD
 #Pra isso temos os métodos/verbos POST, DELETE...
 
 
+
+Dicas do devise
+
+#Devise cria estrutura de login para a aplicação.
+#primeiro add devise para gem -> gem 'devise'
+# depois executar -> bundle install e em sequencia -> rails generate devise:install
+# depois criar omodel -> rails generate devise nome_do_model user:string id: int e por fim ->rails db:migrate
+#caso você tenha esquecido algum campo no migrate para adicionar depois dele já ter sido gerado 
+# -> rails generate migration add_name_to_user name:string aonde o name é o campo que você quer adicionar e user é o nome do model.
+#depois usar o db:migrate.
+#para exibir a ciew rodar rails generate devise:views
+#para pegar a tradução do i18n acessar o site abaixo.
+#https://raw.githubusercontent.com/tigrish/devise-i18n/master/rails/locales/pt-BR.yml#não é recomendado colocar os controllers do devise
+#já que nele tem coisas como cryptografia
+#ele gera dois metodos para usar em qualquer controler e em qualquer view
+# 1º -> MODEL_signed_in? aonde model é o nome do model ex user.
+# ou também -> admin_signed_in?
+# 2º current_Model -> model é o nome do model, esse método retorna o objeto(quem está logado) ou nil 
+# se você quser tirar alguma função do devise, ex registrar, tem que remover do modulo 
+# A rota para deslogar do devise é o delete_session
+# devise tem um before_action :authenticate_user! para verificar se o usuario está logado
+# outro jeito para testar autenticação é criando uma pasta no support e jogando essa linha -> include Warden::Test::Helpers
+# esse comando permite usar o seguinte código -> login_as(user, :scope => :user) que já cria um usuario (aainda é necessario criar no bd o user)
