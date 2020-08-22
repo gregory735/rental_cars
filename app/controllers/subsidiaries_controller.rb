@@ -1,5 +1,6 @@
 class SubsidiariesController < ApplicationController
   before_action :set_subsidiary, only: [:show, :edit, :update]
+  before_action  :authenticate_user!, only: [ :index ]
 
   def index
     @subsidiaries = Subsidiary.all
