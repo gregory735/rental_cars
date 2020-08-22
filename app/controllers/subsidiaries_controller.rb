@@ -15,7 +15,7 @@ class SubsidiariesController < ApplicationController
   def create
     @subsidiary = Subsidiary.create(subsidiary_params)
     if @subsidiary.save
-      redirect_to @subsidiary
+      redirect_to @subsidiary, notice: 'Filial criada com sucesso!'
       #rails já entende que redirecionar para esse objeto é
       #fazer um show dele, e o rails já cria o path certo.
     else
