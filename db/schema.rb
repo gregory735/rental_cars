@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_214708) do
+ActiveRecord::Schema.define(version: 2020_08_22_230839) do
 
   create_table "car_categories", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2020_08_20_214708) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_category_id"], name: "index_car_models_on_car_category_id"
+  end
+
+  create_table "costumers", force: :cascade do |t|
+    t.string "name"
+    t.string "cpf"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subsidiaries", force: :cascade do |t|
