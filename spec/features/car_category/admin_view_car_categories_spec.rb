@@ -83,4 +83,20 @@ feature 'Admin view car categories' do
 
     expect(current_path).to eq car_categories_path
   end
+
+  scenario 'and sign out' do
+    #Arrange
+    user = User.create!(name: 'greg', email: 'greg@email.com', password: '123456')
+    login_as(user, scope: :user)
+
+    #Act
+    visit root_path
+    click_on 'Sair'
+
+    #Assert
+    expect(page).not_to have_content(user.name)
+    expect(page).not_to have_content('Sair')
+    expect(page).to have_content('Logout efetuado com sucesso')
+    expect(page).to have_content('Entrar')
+  end
 end
