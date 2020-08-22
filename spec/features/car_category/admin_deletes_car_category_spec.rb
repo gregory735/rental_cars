@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 feature 'Admin deletes manufacturer' do
+  scenario 'Must be signed in' do
+    # Arrange
+
+    #Act
+    visit root_path
+    click_on 'Categorias'
+
+    #Assert
+    expect(current_path).to eq new_user_session_path
+    expect(page).to have_content('Para continuar, faça login ou registre-se.')
+  end
+
   scenario 'successfully' do
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
