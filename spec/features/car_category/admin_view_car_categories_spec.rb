@@ -84,6 +84,27 @@ feature 'Admin view car categories' do
     expect(current_path).to eq car_categories_path
   end
 
+  scenario 'and view car models' do
+    top = CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
+                              third_party_insurance: 10.5)
+    CarModel.create!(name: 'Civic', year: 2020, manufacturer: 'Honda',
+                     motorization: '2.0', car_category: top, fuel_type: 'Flex')
+    CarModel.create!(name: 'Jeep', year: 2020, manufacturer: 'Renegade',
+                     motorization: '2.0', car_category: top, fuel_type: 'Flex')
+    user = User.create!(name: 'greg', email: 'greg@email.com', password: '123456')
+    login_as(user, scope: :user)
+
+    visit root_path
+    click_on 'Categorias'
+    click_on top.name
+
+    expect(page).to have_content('Top')
+    expect(page).to have_link('Jeep')
+    expect(page).to have_content('2020')
+    expect(page).to have_link('Civic')
+    expect(page).to have_content('2020')
+  end
+
   scenario 'and sign out' do
     #Arrange
     user = User.create!(name: 'greg', email: 'greg@email.com', password: '123456')

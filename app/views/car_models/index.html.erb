@@ -1,16 +1,12 @@
 <h1>Modelos de carro</h1>
 
+<!---
 <% @car_models.each do |car_model| %>
-  <div>
-    <!--- Aspas dupla só usamos em interpolação como no exemplo abaixo --->
-    <h3><%= link_to "#{car_model.name} - #{car_model.year}", car_model  %></h3>
-      <ul>
-        <li><%= car_model.manufacturer %></li>
-        <li><%= car_model.year %></li>
-        <li><%= car_model.car_category.name %></li>
-      </ul>
-  </div>
+  <%= render partial: 'car_model', locals: { car_model: car_model } %>
 <% end %>
+isso é a mesma coisa da linha de baixo, só pode usar isso se tudo tiver o mesmo nome
+--->
+<%= render @car_models %>
 
 <% if @car_models.empty? %>
   <h2>Nenhum modelo de carro registrado</h2>
