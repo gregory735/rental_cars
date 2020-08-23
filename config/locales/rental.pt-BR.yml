@@ -1,0 +1,12 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      rental: 'Cliente'
+    attributes:
+      rental:
+        name: 'Nome'
+        customer: 'Cliente'
+        car_category: 'Categoria de carro'
+        start_date: 'Data de início'
+        end_date: 'Data de término'

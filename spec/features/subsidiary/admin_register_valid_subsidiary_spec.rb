@@ -73,6 +73,12 @@ feature 'Admin register valid subsidiary' do
     expect(page).to have_content('Cnpj deve ser válido')
   end
 
+  scenario "must be logged in to create subsidiary" do
+    visit new_subsidiary_path
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   scenario 'and must sign out' do
     #Arrange
     user = User.create!(name: 'greg', email: 'greg@email.com', password: '123456')
