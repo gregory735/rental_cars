@@ -6,11 +6,9 @@ feature "Admin schedule rental" do
 
     #Act
     visit root_path
-    click_on "Locações"
 
     #Assert
-    expect(current_path).to eq new_user_session_path
-    expect(page).to have_content("Para continuar, faça login ou registre-se.")
+    expect(page).not_to have_content("Locações")
   end
 
   scenario "successfully" do

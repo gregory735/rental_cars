@@ -11,13 +11,13 @@
     <li><%= link_to 'Categorias', car_categories_path %></li>
     <li><%= link_to 'Filiais', subsidiaries_path %></li>
     <li><%= link_to 'Modelos de carro', car_models_path %></li>
-    <li><%= link_to 'Locações', rentals_path %></li>
       <% if user_signed_in? %> <!--- método do devise --->
         <%= current_user.name %> <!--- método do devise --->
-        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'menu_link' %>
+        <li><%= link_to 'Locações', rentals_path %></li>
+        <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <%= link_to 'Entrar',  new_user_session_path, class: 'menu_link'%>
+        <li><%= link_to 'Entrar',  new_user_session_path %></li>
       <% end %>
-  <ul>
+  <ul><%= link_to 'Voltar', root_path %>
 </nav>
 <!-- End Navigation Bar -->
