@@ -1,4 +1,7 @@
 <h1 class="header">Agendamento de carro</h1>
+<% if @rentals.empty? %>
+  <h1 class="header">Nenhuma locação agendada!</h1>
+<% end %>
 
 <!-- Start Navigation Bar -->
 <nav class="navbar">
@@ -9,3 +12,14 @@
   <ul>
 </nav>
 <!-- End Navigation Bar -->
+
+<% if @rentals.none? %>
+  <p>Não há locações agendadas</p>
+<% end %>
+
+<% @rentals.each do |rental| %>
+  <p><%= rental.customer.name %></p>
+  <p><%= rental.car_category.name %></p>
+  <p><%= rental.start_date %></p>
+  <p><%= rental.end_date %></p>
+<% end %>

@@ -1,7 +1,9 @@
 class RentalsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :show]
   
-  def index; end
+  def index
+    @rentals = Rental.all
+  end
 
   def show
     @rental = Rental.find(params[:id])
