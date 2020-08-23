@@ -6,6 +6,6 @@ class CarCategory < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
 
   def daily_price
-    daily_price + car_insurance + third_party_insurance
+    daily_rate + car_insurance + third_party_insurance
   end
 end

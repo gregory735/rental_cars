@@ -4,6 +4,10 @@ class Customer < ApplicationRecord
   validates :cpf, uniqueness: { case_sensitive: false, message: 'CPF inválido, já registrado no sistema anteriormente!' }
   validate :cpf_must_be_valid
 
+  def information
+    "#{name} - #{cpf}"
+  end
+
   private
 
   def cpf_must_be_valid

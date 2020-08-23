@@ -90,7 +90,7 @@
 }
 
 .navbar .menu a {
-  flex: 1;
+  flex: 5;
   justify-content: center;
   display: inline-flex;
   color: #ffffff;
