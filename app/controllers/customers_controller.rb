@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(customer_params)
+    @customer = Customer.create(customer_params)
     if @customer.save
       redirect_to @customer, notice: 'Cliente cadastrado com sucesso!'
     else
