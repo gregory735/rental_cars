@@ -1,0 +1,7 @@
+<%= link_to 'Cadastrar um novo cliente', new_customer_path %>
+
+<% if @customers.empty? %>
+  <h1>Nenhum cliente cadastrado</h1>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>

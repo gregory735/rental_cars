@@ -2,9 +2,9 @@
 pt-BR:
   activerecord:
     models:
-      costumer: 'Cliente'
+      customer: 'Cliente'
     attributes:
-      costumer:
+      customer:
         name: 'Nome'
         cpf: 'CPF'
         email: 'E-mail'
