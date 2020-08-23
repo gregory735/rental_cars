@@ -22,14 +22,14 @@ feature 'User Register a costumer' do
     click_on 'Clientes'
     click_on 'Cadastrar um novo cliente'
     fill_in 'Nome', with: 'cliente1'
-    fill_in 'CPF', with: '111.111.111-11'
+    fill_in 'CPF', with: '964.362.025-52'
     fill_in 'E-mail', with: 'cliente1@email.com'
     click_on 'Enviar'
 
     #Assert
     expect(page).to have_content('Cliente cadastrado com sucesso!')
     expect(page).to have_content('cliente1')
-    expect(page).to have_content('111.111.111-11')
+    expect(page).to have_content('964.362.025-52')
     expect(page).to have_content('cliente1@email.com')
     expect(page).to have_link('Voltar')
   end

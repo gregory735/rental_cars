@@ -1,13 +1,12 @@
 class CarModelsController < ApplicationController
-  before_action  :authenticate_user!, only: [ :index ]
-  
+  before_action :set_car_model, only: [:show]
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @car_models = CarModel.all
   end
 
-  def show
-    @car_model = CarModel.find(params[:id])
-  end
+  def show; end
 
   def new
     @car_model = CarModel.new
@@ -22,6 +21,10 @@ class CarModelsController < ApplicationController
       @car_categories = CarCategory.all
       render :new
     end
+  end
+
+  def set_car_model
+    @car_model = CarModel.find(params[:id])
   end
 
   private

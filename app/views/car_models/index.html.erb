@@ -1,4 +1,7 @@
-<h1>Modelos de carro</h1>
+<h1 class="header">Modelos de carro</h1>
+<% if @car_models.empty? %>
+  <h2 class="header">Nenhum modelo de carro registrado</h2>
+<% end %>
 
 <!---
 <% @car_models.each do |car_model| %>
@@ -6,11 +9,15 @@
 <% end %>
 isso é a mesma coisa da linha de baixo, só pode usar isso se tudo tiver o mesmo nome
 --->
+
+<!-- Start Navigation Bar -->
+<nav class="navbar">
+  <ul class="menu">
+    <!-- Dropdown content here -->
+    <%= link_to 'Registrar um modelo de carro', new_car_model_path, class: 'menu_link' %>
+    <%= link_to 'Voltar', root_path, class: 'menu_link' %>
+  <ul>
+</nav>
+<!-- End Navigation Bar -->
+
 <%= render @car_models %>
-
-<% if @car_models.empty? %>
-  <h2>Nenhum modelo de carro registrado</h2>
-<% end %>
-
-<%= link_to 'Registrar um modelo de carro', new_car_model_path %>
-<%= link_to 'Voltar', root_path %>

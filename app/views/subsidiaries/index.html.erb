@@ -1,10 +1,18 @@
-<% @subsidiaries.each do |subsidiary| %>
-    <%= link_to subsidiary.name, subsidiary_path(id: subsidiary.id) %>
-<% end %>
-
+<h1 class="header">Filiais Rental Cars</h1>
 <% if @subsidiaries.empty? %>
-    <h1>Nenhuma Filial cadastrada</h1>
+    <h1 class="header">Nenhuma Filial cadastrada</h1>
 <% end %>
 
-<%= link_to 'Registrar uma nova filial', new_subsidiary_path %>
-<%= link_to 'Voltar', root_path %>
+<!-- Start Navigation Bar -->
+<nav class="navbar">
+  <ul class="menu">
+    <!-- Dropdown content here -->
+    <%= link_to 'Registrar uma nova filial', new_subsidiary_path, class: 'menu_link' %>
+    <%= link_to 'Voltar', root_path, class: 'menu_link' %>
+  <ul>
+</nav>
+<!-- End Navigation Bar -->
+
+<% @subsidiaries.each do |subsidiary| %>
+    <li><%= link_to subsidiary.name, subsidiary_path(id: subsidiary.id), class: 'link-to-text-color' %></li>
+<% end %>

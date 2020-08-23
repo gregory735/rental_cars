@@ -15,7 +15,7 @@ feature 'Admin register a valid customer' do
 
   scenario 'and the cpf must be unique' do
     #Arrange
-    Customer.create!(name: 'customer1', cpf: '111.111.111-11',
+    Customer.create!(name: 'customer1', cpf: '964.362.025-52',
                      email: 'customer1@email.com')
     user = User.create!(name: 'greg', email: 'greg@email.com', password: '123456')
     login_as(user, scoop: :user)
@@ -25,7 +25,7 @@ feature 'Admin register a valid customer' do
     click_on 'Clientes'
     click_on 'Cadastrar um novo cliente'
     fill_in 'Nome', with: 'customer1.1'
-    fill_in 'CPF', with: '111.111.111-11'
+    fill_in 'CPF', with: '964.362.025-52'
     fill_in 'E-mail', with: 'customer1@email.com'
     click_on 'Enviar'
 
