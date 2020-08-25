@@ -1,5 +1,5 @@
 <h1 class="header">Agendamento de carro</h1>
-<% if @rentals.empty? %>
+  <% if @rentals.empty? %>
   <h1 class="header">Nenhuma locação agendada!</h1>
 <% end %>
 
@@ -8,8 +8,13 @@
   <ul class="menu">
     <!-- Dropdown content here -->
     <li><%= link_to 'Agendar uma nova locação', new_rental_path %></li>
+    <%= form_with url: rentals_search_path, method: :get do |f| %>
+    <%= f.label :q, 'Busca de locação' %>
+    <%= f.text_field :q %>
+    <%= f.submit 'Buscar'%>
+    <% end %>
     <li><%= link_to 'Voltar', root_path %></li>
-  <ul>
+    <ul>
 </nav>
 <!-- End Navigation Bar -->
 
@@ -22,4 +27,28 @@
   <p><%= rental.car_category.name %></p>
   <p><%= rental.start_date %></p>
   <p><%= rental.end_date %></p>
+<% end %>
+
+
+<% if @rentals.present? %>
+  <% @rentals.each do |rental| %>
+    <dl>
+      <dt>Token</dt>
+      <dd><%= rental.token %></dd>
+      <dt>Data de início</dt>
+      <dd><%= l rental.start_date %></dd>
+      <dt>Data de término</dt>
+      <dd><%= l rental.end_date %></dd>
+      <dt>Cliente</dt>
+      <dd><%= rental.customer.name %></dd>
+      <dd><%= rental.customer.cpf %></dd>
+      <dd><%= rental.customer.email %></dd>
+      <dt>Categoria de carro</dt>
+      <dd><%= rental.car_category.name %></dd>
+      <dt>Previsão de valor</dt>
+      <dd><%= number_to_currency rental.total %></dd>
+      <dt>Usuário</dt>
+      <dd><%= rental.user.email %></dd>
+    </dl>
+  <% end %>
 <% end %>

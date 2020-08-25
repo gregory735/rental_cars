@@ -25,6 +25,11 @@ class RentalsController < ApplicationController
     end
   end
 
+  def search
+    @rentals = Rental.where(token: params[:q])
+    render :index
+  end
+
   private
 
   def rental_params
